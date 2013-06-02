@@ -83,7 +83,7 @@ public class PersitenceConfiguration {
     public EntityManagerFactory entityManagerFactory() {
       HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
       vendorAdapter.setGenerateDdl(true);
-      LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
+      final LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
       factory.setJpaVendorAdapter(vendorAdapter);
       factory.setPackagesToScan("com.github.springdata.persistence");
       factory.setDataSource(dataSource());
