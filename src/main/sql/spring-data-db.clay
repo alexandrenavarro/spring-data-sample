@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<clay-model clay-version="2.0.1">
+<database-model author="" begin-script="" end-script="" id="6149cc51:13f06f87e43:-8000" name="spring-data-db" sql-dialect-id="jp.azzurri.clay.dialect.HSQLDB_1_8_0_Dialect" version="1.0">
+<schema-list>
+<schema id="6149cc51:13f06f87e43:-7ffd" name="DEFAULT_SCHEMA">
+<table-list>
+<table id="6149cc51:13f06f87e43:-7fff" name="DEAL">
+<column-list>
+<column auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="6149cc51:13f06f87e43:-7ff7" mandatory="true" name="DEAL_ID">
+<data-type name="INT" selected-variant-pattern="INT"/>
+</column>
+<column auto-increment="false" column-size="32" decimal-digits="0" default-value="" id="6149cc51:13f06f87e43:-7ff4" mandatory="true" name="DEAL_CODE">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="256" decimal-digits="0" default-value="" id="6149cc51:13f06f87e43:-7ff1" mandatory="false" name="DEAL_LABEL">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+</column-list>
+<primary-key id="6149cc51:13f06f87e43:-7ffe" name="PK_DEAL">
+<primary-key-column name="DEAL_ID"/>
+</primary-key>
+<unique-key-list>
+<unique-key id="6149cc51:13f06f87e43:-7fee" name="UQ_TABLE_1_1">
+<unique-key-column name="DEAL_CODE"/>
+</unique-key>
+</unique-key-list>
+</table>
+</table-list>
+</schema>
+</schema-list>
+</database-model>
+<diagram>
+<table-figure height="227" refid="6149cc51:13f06f87e43:-7fff" width="184" x="178" y="189"/>
+</diagram>
+</clay-model>
