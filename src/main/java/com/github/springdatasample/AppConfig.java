@@ -7,6 +7,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.ClassPathResource;
 
 import com.github.springdatasample.persistence.PersitenceConfig;
+import com.github.springdatasample.ws.WsConfig;
 
 /**
  * <p>AppConfiguration. </p>
@@ -15,7 +16,7 @@ import com.github.springdatasample.persistence.PersitenceConfig;
  * 
  */
 @Configuration
-@Import({ PersitenceConfig.class/*, WebConfig.class */})
+@Import({ PersitenceConfig.class, WsConfig.class})
 public class AppConfig {
 
     /**

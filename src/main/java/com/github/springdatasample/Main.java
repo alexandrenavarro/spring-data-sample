@@ -24,7 +24,7 @@ public final class Main {
      */
     public static void main(String[] args) {
         LOGGER.info("start");
-        final AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(PersitenceConfig.class);
+        final AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         
         final DealRepository dealRepository = applicationContext.getBean(DealRepository.class);
         

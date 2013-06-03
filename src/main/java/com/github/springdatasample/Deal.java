@@ -1,9 +1,12 @@
 package com.github.springdatasample;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * <p>Deal. </p>
@@ -12,13 +15,13 @@ import javax.persistence.Id;
  *
  */
 @Entity
+@XmlRootElement
 public class Deal {
     
     private Integer dealId;
     private String dealCode;
     private String dealLabel;
     
-
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     public Integer getDealId() {

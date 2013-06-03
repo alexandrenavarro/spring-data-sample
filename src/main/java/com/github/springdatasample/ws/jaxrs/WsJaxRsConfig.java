@@ -1,10 +1,10 @@
-package com.github.springdatasample.web.jaxrs;
+package com.github.springdatasample.ws.jaxrs;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan(basePackageClasses = {WebJaxRsConfig.class})
-public class WebJaxRsConfig {
+@ComponentScan(basePackageClasses = {WsJaxRsConfig.class})
+public class WsJaxRsConfig {
 
 }

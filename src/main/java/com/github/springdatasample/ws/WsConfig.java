@@ -1,16 +1,17 @@
-package com.github.springdatasample.web;
+package com.github.springdatasample.ws;
 
 import javax.inject.Inject;
 
 import org.apache.cxf.bus.spring.SpringBus;
 import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
+import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 import com.github.springdatasample.persistence.PersitenceConfig;
-import com.github.springdatasample.web.jaxrs.WebJaxRsConfig;
+import com.github.springdatasample.ws.jaxrs.WsJaxRsConfig;
 
 /**
  * <p>WsConfiguration. </p>
@@ -19,8 +20,8 @@ import com.github.springdatasample.web.jaxrs.WebJaxRsConfig;
  * 
  */
 @Configuration
-@Import({ WebJaxRsConfig.class })
-public class WebConfig {
+@Import({ WsJaxRsConfig.class })
+public class WsConfig {
 
     @Inject
     private DealResource dealResource;
@@ -34,7 +35,8 @@ public class WebConfig {
     public JAXRSServerFactoryBean restContainer() {
         final JAXRSServerFactoryBean jaxRSServerFactoryBean = new JAXRSServerFactoryBean();
         jaxRSServerFactoryBean.setServiceBeanObjects(this.dealResource);
-        jaxRSServerFactoryBean.setAddress("/ws/");
+        jaxRSServerFactoryBean.setAddress("/rest/");
+        jaxRSServerFactoryBean.setProvider(new JacksonJsonProvider());
         jaxRSServerFactoryBean.create();
         return jaxRSServerFactoryBean;
     }
@@ -49,4 +51,5 @@ public class WebConfig {
         final SpringBus springBus = new SpringBus();
         return springBus;
     }
+    
 }

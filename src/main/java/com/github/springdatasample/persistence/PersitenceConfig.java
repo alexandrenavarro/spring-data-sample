@@ -8,10 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.dao.support.PersistenceExceptionTranslator;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.hibernate3.HibernateExceptionTranslator;
@@ -21,6 +17,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.github.springdatasample.Deal;
 import com.jolbox.bonecp.BoneCPDataSource;
 
 /**
@@ -30,10 +27,13 @@ import com.jolbox.bonecp.BoneCPDataSource;
  *
  */
 @Configuration
-@EnableJpaRepositories("com.github.springdata.persistence")
+@EnableJpaRepositories("com.github.springdatasample.persistence")
 @EnableTransactionManagement
 public class PersitenceConfig {
     
+    /**
+     * LOGGER
+     */
     private static final Logger LOGGER = LoggerFactory.getLogger(PersitenceConfig.class);
     
     @Value("${driverClassName}")
@@ -75,14 +75,14 @@ public class PersitenceConfig {
       vendorAdapter.setGenerateDdl(true);
       final LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
       factory.setJpaVendorAdapter(vendorAdapter);
-      factory.setPackagesToScan("com.github.springdata.persistence");
+      factory.setPackagesToScan("com.github.springdatasample");
       factory.setDataSource(dataSource());
       factory.afterPropertiesSet();
       return factory.getObject();
     }
     
     @Bean 
-    public PersistenceExceptionTranslator persistenceExceptionTranslator(){ 
+    public PersistenceExceptionTranslator persistenceExceptionTranslator() { 
       return new HibernateExceptionTranslator(); 
     }
 
