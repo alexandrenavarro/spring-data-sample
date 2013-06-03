@@ -1,8 +1,8 @@
-package com.github.springdata.persistence;
+package com.github.springdatasample.persistence;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.Repository;
+
+import com.github.springdatasample.Deal;
 
 
 /**

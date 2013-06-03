@@ -1,12 +1,11 @@
-package com.github.springdata;
+package com.github.springdatasample;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.github.springdata.persistence.Deal;
-import com.github.springdata.persistence.DealRepository;
-import com.github.springdata.persistence.PersitenceConfiguration;
+import com.github.springdatasample.persistence.DealRepository;
+import com.github.springdatasample.persistence.PersitenceConfig;
 
 /**
  * <p>Main. </p>
@@ -25,7 +24,7 @@ public final class Main {
      */
     public static void main(String[] args) {
         LOGGER.info("start");
-        final AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(PersitenceConfiguration.class);
+        final AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(PersitenceConfig.class);
         
         final DealRepository dealRepository = applicationContext.getBean(DealRepository.class);
         

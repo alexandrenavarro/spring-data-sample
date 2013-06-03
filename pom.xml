@@ -11,6 +11,8 @@
 		<logbackVersion>1.0.13</logbackVersion>
 		<hibernateVersion>4.2.2.Final</hibernateVersion>
 		<springVersion>3.2.3.RELEASE</springVersion>
+		<cxfVersion>2.7.3</cxfVersion>
+		<jerseyVersion>2.0-rc1</jerseyVersion>
 	</properties>
 	<prerequisites>
 		<maven>3.0.0</maven>
@@ -33,8 +35,13 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${springVersion}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${springVersion}</version>
+		</dependency>
 
-		<!-- jpa/hibernate -->
+		<!-- jpa-api -->
 		<dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>
 			<artifactId>hibernate-jpa-2.0-api</artifactId>
@@ -47,6 +54,8 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
+		<!-- jpa-hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
@@ -74,14 +83,14 @@
 			<version>1.3.2.RELEASE</version>
 		</dependency>
 
-		<!-- pool -->
+		<!-- connection-pool -->
 		<dependency>
 			<groupId>com.jolbox</groupId>
 			<artifactId>bonecp</artifactId>
 			<version>0.8.0-rc1</version>
 		</dependency>
 
-		<!-- h2 -->
+		<!-- database : h2 -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
@@ -95,7 +104,36 @@
 			<version>1</version>
 		</dependency>
 
-		<!-- tomcat -->
+		<!-- jaxrs -->
+		<dependency>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>javax.ws.rs-api</artifactId>
+			<version>2.0-m10</version>
+		</dependency>
+
+		<!-- jaxrs-impl : cxf -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
+			<version>${cxfVersion}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+
+		<!-- Jersey -->
+		<!--dependency> <groupId>org.glassfish.jersey.core</groupId> <artifactId>jersey-common</artifactId> 
+			<version>${jerseyVersion}</version> </dependency> <dependency> <groupId>org.glassfish.jersey.core</groupId> 
+			<artifactId>jersey-server</artifactId> <version>${jerseyVersion}</version> 
+			</dependency> <dependency> <groupId>org.glassfish.jersey.core</groupId> <artifactId>jersey-client</artifactId> 
+			<version>${jerseyVersion}</version> </dependency -->
+
+
+		<!-- Tomcat -->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-core</artifactId>
@@ -111,7 +149,6 @@
 			<artifactId>tomcat-embed-logging-log4j</artifactId>
 			<version>${tomcatVersion}</version>
 		</dependency>
-
 
 
 		<!-- log -->

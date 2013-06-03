@@ -1,4 +1,4 @@
-package com.github.springdata.persistence;
+package com.github.springdatasample.persistence;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
@@ -32,9 +32,9 @@ import com.jolbox.bonecp.BoneCPDataSource;
 @Configuration
 @EnableJpaRepositories("com.github.springdata.persistence")
 @EnableTransactionManagement
-public class PersitenceConfiguration {
+public class PersitenceConfig {
     
-    private static final Logger LOGGER = LoggerFactory.getLogger(PersitenceConfiguration.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(PersitenceConfig.class);
     
     @Value("${driverClassName}")
     private String driverClassName;
@@ -48,16 +48,6 @@ public class PersitenceConfiguration {
     @Value("${password}")
     private String password;
  
-    
-    static @Bean 
-    public PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
-        PropertySourcesPlaceholderConfigurer p = new PropertySourcesPlaceholderConfigurer();
-        ClassPathResource[] resourceLocations = new ClassPathResource[] {
-                new ClassPathResource("spring-data-sample.properties"),
-        };
-        p.setLocations(resourceLocations);
-        return p;
-    }
     
     /**
      * dataSource.

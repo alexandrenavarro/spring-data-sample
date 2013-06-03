@@ -1,4 +1,4 @@
-package com.github.springdata.persistence;
+package com.github.springdatasample;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
