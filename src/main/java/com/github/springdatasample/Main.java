@@ -1,5 +1,9 @@
 package com.github.springdatasample;
 
+import java.sql.Date;
+import java.sql.Timestamp;
+
+import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -33,6 +37,7 @@ public final class Main {
         final Deal deal = new Deal();
         deal.setDealCode("DealCode");
         deal.setDealLabel("DealLabel");
+        //deal.setLastModifiedDateTime(new Date(0));
         dealRepository.save(deal);
         
         LOGGER.info("dealRepository.findOne(1)=" + dealRepository.findOne(1));
@@ -44,6 +49,12 @@ public final class Main {
         
         LOGGER.info("dealRepository.findAll()=" + dealRepository.findAll());
 
+        LOGGER.info("dealRepository.findByDealCode(\"DealCode\")=" + dealRepository.findByDealCode("DealCode"));
+        
+        LOGGER.info("dealRepository.findByLastModifiedDateTimeGreaterThan(\"DealCode\")=" + dealRepository.findByLastModifiedDateTimeGreaterThanEqual(new Date(System.currentTimeMillis())));
+        LOGGER.info("dealRepository.findByLastModifiedDateTimeGreaterThan(\"DealCode\")=" + dealRepository.findByLastModifiedDateTimeGreaterThanEqual(new Date(System.currentTimeMillis() - 86400000)));
+        
+        
         LOGGER.info("stop");
     }
 

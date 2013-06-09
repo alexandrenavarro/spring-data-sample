@@ -7,4 +7,5 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(basePackageClasses = {WsJaxRsConfig.class})
 public class WsJaxRsConfig {
 
+
 }

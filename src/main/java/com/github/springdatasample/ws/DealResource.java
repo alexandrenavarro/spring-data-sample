@@ -17,6 +17,6 @@ public interface DealResource {
      *
      * @return
      */
-    public Deal[] getDeals();
+    //public Deal[] getDeals();
     
 }

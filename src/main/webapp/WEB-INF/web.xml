@@ -13,15 +13,23 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener
 		</listener-class>
 	</listener>
-	
-	
+
+
 	<servlet>
 		<servlet-name>CXFServlet</servlet-name>
-		<display-name>CXF Servlet</display-name>
-		<servlet-class>
-			org.apache.cxf.transport.servlet.CXFServlet
-		</servlet-class>
 		<load-on-startup>1</load-on-startup>
+		<display-name>CXF Servlet</display-name>
+		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+		<!--servlet-class>
+			org.apache.cxf.jaxrs.servlet.CXFNonSpringJaxrsServlet
+		</servlet-class>
+		<init-param>
+			<param-name>javax.ws.rs.Application</param-name>
+			<param-value>
+				com.github.springdatasample.ws.jaxrs.RestApplication
+				(name=1 id=2)
+			</param-value>
+		</init-param-->
 	</servlet>
 
 	<servlet-mapping>

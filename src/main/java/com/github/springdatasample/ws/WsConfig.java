@@ -1,16 +1,15 @@
 package com.github.springdatasample.ws;
 
 import javax.inject.Inject;
+import javax.ws.rs.Produces;
 
 import org.apache.cxf.bus.spring.SpringBus;
 import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
 import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
-import com.github.springdatasample.persistence.PersitenceConfig;
 import com.github.springdatasample.ws.jaxrs.WsJaxRsConfig;
 
 /**
@@ -23,6 +22,7 @@ import com.github.springdatasample.ws.jaxrs.WsJaxRsConfig;
 @Import({ WsJaxRsConfig.class })
 public class WsConfig {
 
+    
     @Inject
     private DealResource dealResource;
 
@@ -32,6 +32,7 @@ public class WsConfig {
      * @return
      */
     @Bean
+    //@Produces
     public JAXRSServerFactoryBean restContainer() {
         final JAXRSServerFactoryBean jaxRSServerFactoryBean = new JAXRSServerFactoryBean();
         jaxRSServerFactoryBean.setServiceBeanObjects(this.dealResource);
@@ -39,6 +40,7 @@ public class WsConfig {
         jaxRSServerFactoryBean.setProvider(new JacksonJsonProvider());
         jaxRSServerFactoryBean.create();
         return jaxRSServerFactoryBean;
+        
     }
 
     /**
@@ -51,5 +53,4 @@ public class WsConfig {
         final SpringBus springBus = new SpringBus();
         return springBus;
     }
-    
 }
