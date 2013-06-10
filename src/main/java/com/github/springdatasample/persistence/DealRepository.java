@@ -1,6 +1,7 @@
 package com.github.springdatasample.persistence;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.EntityListeners;
 import javax.persistence.NamedQuery;
@@ -36,9 +37,7 @@ import com.github.springdatasample.Deal;
 public interface DealRepository extends CrudRepository<Deal, Integer>{
 
 
-    
-    //@Query("select d from Deal d where d.dealCode > ?1")
-    Iterable<Deal> findByLastModifiedDateTimeGreaterThanEqual(Date dealCodee);
+    Iterable<Deal> findByLastModifiedDateGreaterThanEqual(final Timestamp dealCodee);
     
     
     Iterable<Deal> findByDealCode(String dealCode);

@@ -9,7 +9,7 @@
 		<tomcatVersion>7.0.40</tomcatVersion>
 		<slf4jVersion>1.7.5</slf4jVersion>
 		<logbackVersion>1.0.13</logbackVersion>
-		<hibernateVersion>4.1.9.Final</hibernateVersion>
+		<hibernateVersion>4.2.2.Final</hibernateVersion>
 		<springVersion>3.2.3.RELEASE</springVersion>
 		<cxfVersion>2.7.3</cxfVersion>
 		<jerseyVersion>2.0-rc1</jerseyVersion>

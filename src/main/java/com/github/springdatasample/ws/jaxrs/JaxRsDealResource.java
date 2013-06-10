@@ -60,10 +60,24 @@ public class JaxRsDealResource implements DealResource {
      * @param dealList1
      * @return
      */
+//    @GET
+//    //@Path("/deal/findBy")
+//    public Deal[] findBy(@QueryParam("deals") Deal[] dealList1) {
+//        System.out.println("dealList=" + dealList1);
+//        final List<Deal> dealList = new ArrayList<Deal>();
+////        final Iterable<Deal> deals = this.dealRepository.findAll();
+////        for (final Deal deal : deals) {
+////            dealList.add(deal);
+////        }
+//        final Deal deal = new Deal();
+//        deal.setDealCode("DealCode");
+//        dealList.add(deal);
+//        return dealList.toArray(new Deal[0]);
+//    }
+    
     @GET
     //@Path("/deal/findBy")
-    public Deal[] findBy(@QueryParam("deals") Deal[] dealList1) {
-        System.out.println("dealList=" + dealList1);
+    public Deal[] findAll() {
         final List<Deal> dealList = new ArrayList<Deal>();
 //        final Iterable<Deal> deals = this.dealRepository.findAll();
 //        for (final Deal deal : deals) {
@@ -74,6 +88,7 @@ public class JaxRsDealResource implements DealResource {
         dealList.add(deal);
         return dealList.toArray(new Deal[0]);
     }
+    
     
     
     

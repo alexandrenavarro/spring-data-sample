@@ -34,6 +34,7 @@ public final class Main {
         
         LOGGER.info("dealRepository.findAll()=" + dealRepository.findAll());
 
+        /*
         final Deal deal = new Deal();
         deal.setDealCode("DealCode");
         deal.setDealLabel("DealLabel");
@@ -51,9 +52,10 @@ public final class Main {
 
         LOGGER.info("dealRepository.findByDealCode(\"DealCode\")=" + dealRepository.findByDealCode("DealCode"));
         
-        LOGGER.info("dealRepository.findByLastModifiedDateTimeGreaterThan(\"DealCode\")=" + dealRepository.findByLastModifiedDateTimeGreaterThanEqual(new Date(System.currentTimeMillis())));
-        LOGGER.info("dealRepository.findByLastModifiedDateTimeGreaterThan(\"DealCode\")=" + dealRepository.findByLastModifiedDateTimeGreaterThanEqual(new Date(System.currentTimeMillis() - 86400000)));
+        LOGGER.info("dealRepository.findByLastModifiedDateTimeGreaterThan(\"DealCode\")=" + dealRepository.findByLastModifiedDateGreaterThanEqual(new Timestamp(System.currentTimeMillis())));
+        LOGGER.info("dealRepository.findByLastModifiedDateTimeGreaterThan(\"DealCode\")=" + dealRepository.findByLastModifiedDateGreaterThanEqual(new Timestamp(System.currentTimeMillis() - 86400000)));
         
+        */
         
         LOGGER.info("stop");
     }

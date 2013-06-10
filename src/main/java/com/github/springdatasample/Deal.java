@@ -15,6 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
+import org.joda.time.LocalDateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.annotation.CreatedDate;
@@ -47,11 +48,22 @@ public class Deal {
 
 
     @Column
+    //@Temporal(TemporalType.TIMESTAMP)
     @Type(type="date")
-
     //@Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
     //@Temporal(TemporalType.DATE)
-    private Date lastModifiedDateTime = new Date(System.currentTimeMillis());
+    private Date lastModifiedDateOld = new Date(System.currentTimeMillis());
+    
+    @Column
+    @Type(type="timestamp")
+    private Timestamp lastModifiedDate = new Timestamp(System.currentTimeMillis());
+    
+//    @Column
+//    //@Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
+//    @Type(type="org.jadira.usertype.dateandtime.jsr310.PersistentLocalDateTime")
+//    private LocalDateTime lastModifiedDateTime = new LocalDateTime();
+    
+    
     
 //    @Column
 //    @Type(type="timestamp")
@@ -96,31 +108,45 @@ public class Deal {
     }
     
     
-    
-    
-    public Date getLastModifiedDateTime() {
-        return this.lastModifiedDateTime;
-    }
 
-    public void setLastModifiedDateTime(Date aLastModifiedDateTime) {
-        this.lastModifiedDateTime = aLastModifiedDateTime;
-    }
-    
     
 
-//    public Timestamp getDateTime() {
-//        return this.dateTime;
+
+    public Timestamp getLastModifiedDate() {
+        return this.lastModifiedDate;
+    }
+
+    public void setLastModifiedDate(Timestamp aLastModifiedDate) {
+        this.lastModifiedDate = aLastModifiedDate;
+    }
+    
+    
+
+    public Date getLastModifiedDateOld() {
+        return this.lastModifiedDateOld;
+    }
+
+    public void setLastModifiedDateOld(Date aLastModifiedDateOld) {
+        this.lastModifiedDateOld = aLastModifiedDateOld;
+    }
+
+//    public LocalDateTime getLastModifiedDateTime() {
+//        return this.lastModifiedDateTime;
 //    }
 //
-//    public void setDateTime(Timestamp aDateTime) {
-//        this.dateTime = aDateTime;
+//    public void setLastModifiedDateTime(LocalDateTime aLastModifiedDateTime) {
+//        this.lastModifiedDateTime = aLastModifiedDateTime;
 //    }
 
     @Override
     public String toString() {
-        return "Deal [dealId=" + this.dealId + ", dealCode=" + this.dealCode + ", dealLabel=" + this.dealLabel + ", lastModifiedDateTime="
-                + this.lastModifiedDateTime + "]";
+        return "Deal [dealId=" + this.dealId + ", dealCode=" + this.dealCode + ", dealLabel=" + this.dealLabel + ", lastModifiedDateOld="
+                + this.lastModifiedDateOld + ", lastModifiedDate=" + this.lastModifiedDate 
+                + "]";
     }
+    
+    
+
 
     
     
